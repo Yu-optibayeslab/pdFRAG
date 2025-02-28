@@ -106,8 +106,6 @@ def get_available_models():
 
         if not available_models:
             st.warning("No models found in Ollama.")
-        #else:
-        #    st.success(f"Available models: {available_models}")
 
         return available_models
 
@@ -121,7 +119,8 @@ available_models = get_available_models()
 ###################################
 # Sidebar for LLM model selection #
 ###################################
-st.sidebar.title("Settings")
+st.sidebar.title("pdFRAG")
+st.sidebar.write("## LLM model Settings")
 
 # Dropdown to select a model
 if available_models:
@@ -137,13 +136,14 @@ else:
 chunk_size = st.sidebar.slider("Chunk Size", 500, 3000, 2000)
 chunk_overlap = st.sidebar.slider("Chunk Overlap", 50, 600, 400)
 
+st.sidebar.write("## Documents")
 # Directory input
 pdf_directory = st.sidebar.text_input("PDF Directory:", DEFAULT_DATA_DIR)
 
 # Check if the directory exists
 if pdf_directory:
     if not os.path.isdir(pdf_directory):
-        st.sidebar.error(f"Directory not found: {pdf_directory}")
+        st.sidebar.error(f"Directory not found: {pdf_directory}.")
         
 # Initialize session state for document metadata and FAISS components
 if "document_metadata" not in st.session_state:
@@ -161,7 +161,7 @@ if pdf_directory and os.path.isdir(pdf_directory):
     ##############################
     # Sidebar for chunk settings #
     ##############################
-    st.sidebar.write("### Documents")
+    
     # Dropdown to select a document
     selected_document = st.sidebar.selectbox(
         "Select a document",
@@ -229,7 +229,6 @@ if "new_query" not in st.session_state:  # Temporary state variable to track inp
 # Initialize session state for tabs and chat history
 if "tabs" not in st.session_state:
     st.session_state.tabs = {}  # Dictionary to store chat history for each article
-
 
 #with upper row:
 with st.container():
