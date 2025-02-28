@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# Streamlit
+.streamlit/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# FAISS and model files (if any)
+*.index
+*.bin
