@@ -230,4 +230,4 @@ PDF Text Extraction Issues: Verify that the PDF files are not scanned images and
 
 For questions or feedback, feel free to reach out:
 
-Email: yu@optibayeslab.com
+Email: contact_us@optibayeslab.com
